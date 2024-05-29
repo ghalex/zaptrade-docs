@@ -8,6 +8,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'ZapCLI',
+      logo: {
+        src: './src/assets/logo.svg',
+      },
       social: {
         github: 'https://github.com/ghalex/zptrade'
       },
