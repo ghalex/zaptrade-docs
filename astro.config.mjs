@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
@@ -9,16 +8,17 @@ export default defineConfig({
     starlight({
       title: 'ZapCLI',
       logo: {
-        src: './src/assets/logo.svg',
+        light: './src/assets/zapcli_logo.svg',
+        dark: './src/assets/zapcli_white.svg'
       },
       social: {
         github: 'https://github.com/ghalex/zptrade'
       },
       sidebar: [
         {
-        label: 'Welcome',
-        link: '/welcome/'
-        }, 
+          label: 'Welcome',
+          link: '/welcome/'
+        },
         {
           label: 'Getting Started',
           link: '/getting-started/'
@@ -31,21 +31,21 @@ export default defineConfig({
           label: 'Programming Languages',
           items: [
             {
-              label: 'ZpLang',
+              label: 'Zplang',
               link: '/languages/zplang/'
             },
             {
-              label: 'Javascript',
+              label: 'JavaScript',
               link: '/languages/javascript/'
             }
           ]
-          },
+        },
       ],
       customCss: [
         // Path to your Tailwind base styles:
         './src/tailwind.css',
       ],
-    }), 
+    }),
     tailwind({
       // Disable the default base styles:
       applyBaseStyles: false,
