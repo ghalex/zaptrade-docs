@@ -4,28 +4,34 @@ description: Get started backtesting your trading strategies with ZapCLI
 template: splash
 hero:
   tagline: The quickest way to test and improve your trading strategies!
-  image:
-    file: ../../assets/houston.webp
   actions:
     - text: Getting Started
       link: /getting-started/
       icon: right-arrow
       variant: primary
+    - text: View on GitHub
+      link: https://github.com/ghalex/zaptrade
+      icon: external
+      variant: secondary
+      attrs:
+        rel: me
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
-
 <CardGrid stagger>
-  <Card title="Discover zplang" icon="pencil">
-    Write your trading strategies in ZPLang, a simple and powerful language.
+  <Card title="Discover Zplang" icon="pencil">
+    Write your trading strategies in [Zplang](https://zplang.com), a simple and powerful language.
+    <div>
+      <button>Try Zplang</button>
+    </div>
   </Card>
-  <Card title="Test some of our examples" icon="add-document">
+  <Card title="Try our examples" icon="add-document">
     Explore our examples to get started with backtesting.
   </Card>
   <Card title="Read the docs" icon="open-book">
     Find more information about the ZapCLI and ZPLang in our documentation.
+
   </Card>
   <Card title="Contribute" icon="seti:git">
     Improve this platform by submitting a PR to [GitHub repo](our repo)

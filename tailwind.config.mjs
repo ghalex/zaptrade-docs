@@ -9,7 +9,7 @@ const primary = {
   300: '#D6BBFB',
   400: '#B692F6',
   500: '#7F56D9',
-  600: '#6941C6',
+  600: '#7F56D9',
   700: '#53389E',
   800: '#42307D',
   900: '#42307D'
@@ -22,8 +22,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        // accent: primary,
-        // gray: colors.gray,
+        accent: primary,
+        gray: colors.gray,
       },
     },
   }

@@ -12,7 +12,11 @@ export default defineConfig({
         dark: './src/assets/zapcli_white.svg'
       },
       social: {
-        github: 'https://github.com/ghalex/zptrade'
+        github: 'https://github.com/ghalex/zaptrade'
+        // discord: 'https://astro.build/chat',
+      },
+      editLink: {
+        baseUrl: 'https://github.com/ghalex/zaptrade-docs/edit/main',
       },
       sidebar: [
         {
@@ -31,12 +35,67 @@ export default defineConfig({
           label: 'Programming Languages',
           items: [
             {
-              label: 'Zplang',
-              link: '/languages/zplang/'
+              label: 'ZpLang',
+              items: [
+                {
+                  label: 'Welcome',
+                  link: '/languages/zplang/welcome'
+                },
+                {
+                  label: 'Examples',
+                  link: '/languages/zplang/examples'
+                },
+                {
+                  label: 'Learn in 5 minutes',
+                  link: '/languages/zplang/learn-in5'
+                },
+                {
+                  label: 'Language Reference',
+                  items: [
+                    {
+                      label: 'Core',
+                      collapsed: true,
+                      items: []
+                    },
+                    {
+                      label: 'Trading',
+                      collapsed: true,
+                      items: []
+                    },
+                    {
+                      label: 'Indicators',
+                      collapsed: true,
+                      items: [
+                        {
+                          label: 'sma',
+                          link: '/languages/zplang/reference/indicators/sma'
+                        },
+                        {
+                          label: 'ema',
+                          link: '/languages/zplang/reference/indicators/ema'
+                        },
+                        {
+                          label: 'cmr',
+                          link: '/languages/zplang/reference/indicators/cmr'
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             },
             {
               label: 'JavaScript',
-              link: '/languages/javascript/'
+              items: [
+                {
+                  label: 'Welcome',
+                  link: '/languages/javascript/welcome'
+                },
+                {
+                  label: 'Examples',
+                  link: '/languages/javascript/examples'
+                }
+              ]
             }
           ]
         },

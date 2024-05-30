@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html[data-theme='light'] .social-icons a {
+    color: #475569;
+}
+
+@media (min-width: 50rem) {
+    .hero {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
