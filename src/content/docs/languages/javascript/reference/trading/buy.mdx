@@ -1,0 +1,24 @@
+---
+title: Buy
+description: Generates a new buy order
+sidebar:
+  label: buy
+---
+
+import { Code } from '@astrojs/starlight/components';
+
+Generates a new buy order.
+
+export const code1 = `function buy(asset, shares, options?)`;
+
+<Code code={code1} lang='clojure' title="example.zp" />
+
+### Description
+
+The `buy` function generates a buy order for a specified symbol and number of units. It returns an order object containing information about the buy action. The function also supports additional options to control order generation based on existing open positions.
+
+### Returns
+
+The `buy` function returns an order object containing information about the buy action. If the order is not generated due to existing open positions, it may return `null`&#x20;
+
+### Parameters

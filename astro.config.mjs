@@ -29,6 +29,7 @@ export default defineConfig({
         },
         {
           label: 'Changelog',
+          // badge: { text: 'v1.0.24', variant: 'tip' },
           link: '/changelog/'
         },
         {
@@ -55,30 +56,17 @@ export default defineConfig({
                     {
                       label: 'Core',
                       collapsed: true,
-                      items: []
+                      autogenerate: { directory: '/languages/zplang/reference/core' },
                     },
                     {
                       label: 'Trading',
-                      collapsed: true,
-                      items: []
+                      collapsed: false,
+                      autogenerate: { directory: '/languages/zplang/reference/trading' },
                     },
                     {
                       label: 'Indicators',
                       collapsed: true,
-                      items: [
-                        {
-                          label: 'sma',
-                          link: '/languages/zplang/reference/indicators/sma'
-                        },
-                        {
-                          label: 'ema',
-                          link: '/languages/zplang/reference/indicators/ema'
-                        },
-                        {
-                          label: 'cmr',
-                          link: '/languages/zplang/reference/indicators/cmr'
-                        }
-                      ]
+                      autogenerate: { directory: '/languages/zplang/reference/indicators' },
                     }
                   ]
                 }
@@ -86,6 +74,7 @@ export default defineConfig({
             },
             {
               label: 'JavaScript',
+              badge: { text: 'New', variant: 'note' }, // badge: 'New
               items: [
                 {
                   label: 'Welcome',

@@ -1,5 +1,7 @@
 ---
-title: Simple Moving Averange
+title: Cumulative Return
+sidebar:
+    label: cmr
 ---
 
 indicators

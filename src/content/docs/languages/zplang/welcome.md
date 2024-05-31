@@ -1,10 +1,10 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: Welcome
+description: Welcome to ZpLang
 tableOfContents: false
 ---
 
-# Welcome
+### What is ZpLang
 
 ZpLang is a purpose-built scripting language designed specifically for creating trading automations. ZpLang is open-source and draws inspiration from [Clojure](https://clojure.org/).
 
