@@ -44,21 +44,10 @@ This automation sorts a list of assets by CMR (_cumulative total return_) and pi
   "AAPL"
 ])
 
-;; define a function to calculate CMR for 21 days
-;; for a specific symbol
-;; you can use it like (cmr21 "AAPL") will give you [AAPL, x.xxx]
-(defn cmr21 [symbol] [symbol, (cmr 21 symbol)])
-
-;; calculates CMR21 for all stocks
-(def mAll (map cmr21 stocks))
-
-;; sort descendend by CMR
-(def second (fn [val] (* -1 (nth 1 val))))
-(def stocksSorted (sortBy second mAll))
+(def stocksSorted (sortBy [s] => (cmr 21 s) stocks))
 
 ;; buy TOP topX
-(loop item in (take topX stocksSorted)
-  (def symbol (nth 0 item))
+(loop symbol in (take topX stocksSorted)
   (def amount (* (getCash) weight))
   (buyAmount {symbol} amount true)
 )
