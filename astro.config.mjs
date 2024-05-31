@@ -28,6 +28,11 @@ export default defineConfig({
           link: '/getting-started/'
         },
         {
+          label: 'Analyzers',
+          // badge: { text: 'v1.0.24', variant: 'tip' },
+          link: '/analyzers/'
+        },
+        {
           label: 'Changelog',
           // badge: { text: 'v1.0.24', variant: 'tip' },
           link: '/changelog/'
