@@ -11,4 +11,8 @@ html[data-theme='light'] .social-icons a {
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
+
+    .hero .actions {
+        gap: 1rem;
+    }
 }

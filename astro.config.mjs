@@ -55,8 +55,9 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Core',
-                      collapsed: true,
-                      autogenerate: { directory: '/languages/zplang/reference/core' },
+                      link: '/languages/zplang/reference/core',
+                      // collapsed: true,
+                      // autogenerate: { directory: '/languages/zplang/reference/core' },
                     },
                     {
                       label: 'Trading',
@@ -65,7 +66,7 @@ export default defineConfig({
                     },
                     {
                       label: 'Indicators',
-                      collapsed: true,
+                      collapsed: false,
                       autogenerate: { directory: '/languages/zplang/reference/indicators' },
                     }
                   ]
