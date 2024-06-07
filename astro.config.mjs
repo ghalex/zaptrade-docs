@@ -89,6 +89,21 @@ export default defineConfig({
                 {
                   label: 'Examples',
                   link: '/languages/javascript/examples'
+                },
+                {
+                  label: 'Language Reference',
+                  items: [
+                    {
+                      label: 'Trading',
+                      collapsed: false,
+                      autogenerate: { directory: '/languages/javascript/reference/trading' },
+                    },
+                    {
+                      label: 'Indicators',
+                      collapsed: false,
+                      autogenerate: { directory: '/languages/javascript/reference/indicators' },
+                    }
+                  ]
                 }
               ]
             }
