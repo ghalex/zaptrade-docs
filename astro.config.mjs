@@ -42,6 +42,7 @@ export default defineConfig({
           items: [
             {
               label: 'ZpLang',
+              collapsed: true,
               items: [
                 {
                   label: 'Welcome',
@@ -80,6 +81,7 @@ export default defineConfig({
             },
             {
               label: 'JavaScript',
+              collapsed: true,
               badge: { text: 'New', variant: 'note' }, // badge: 'New
               items: [
                 {
