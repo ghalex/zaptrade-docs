@@ -88,9 +88,26 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
         </TabItem>
     </Tabs>
 
-    This command will execute `hello.zp` for a duration of **20 days**. It will display the result in the terminal and save the backtest data in `report/data.json`. You can view a **visual report** by opening the `report/report.html` file.
+    This command will execute `hello.zp` for a duration of **20 days**. It will display the result in the terminal and save the backtest data in `backtests/data.json`. You can change the directory where the backtest data is saved by changing the `backtestsDir` property in the `zp.config.js` file.
 
-5. ### Write your own automation
+5. ### Generate a report
+
+    <Tabs>
+        <TabItem label="zapcli">
+            ```bash
+             zapcli report
+            ```
+        </TabItem>
+        <TabItem label="npm">
+            ```bash
+            npm report
+            ```
+        </TabItem>
+    </Tabs>
+
+    This command will generate a **visual report** file `reports/report.html` based on the backtest data saved in `backtests/` directory. You can generate multiple reports by providing the `name` parameter.
+
+6. ### Write your own automation
 
     To write your own strategy you need to create an automation file that will be run on every bar. Currently we have been using the `hello.(zp|js)` file
 
@@ -126,7 +143,7 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
 
     To see more automation examples check out the [Examples ](programming-languages/zplang/examples.md) page.
 
-6. ### Configuration
+7. ### Configuration
 
     ZapCLI is using a configuration file to run a backtest or execute an automation file. Your project started with the default config file:
 
@@ -134,28 +151,39 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
     import { analyzers } from '@zapcli/backtest'
 
     const config = {
-    // Data provider Zapant.com by default
+    // Directories
     dataDir: "./data",
-    apiUrl: "http://zapant.com/api",
-    // Configuration example to execute an automation once
+    reportsDir: "./reports",
+    backtestsDir: "./backtests",
+
+    // Data Provider
+    // ex. zapcli download -s AAPL
+    dataProvider: "zapant",
+
+    // Execute automation
+    // ex. zapcli execute
     execute: {
         date: "2024-05-20",
         inputs: {
-        assets: ["AAPL", "MSFT"],
-        initialCapital: 10000,
-        openPositions: [{
-            symbol: 'AAPL',
-            openDate: 1682366400000,
-            openPrice: 200.00,
-            closeDate: null,
-            closePrice: null,
-            units: 5,
-            side: 'long',
-            accountType: 'paper'
-        }]
+            assets: ["AAPL", "MSFT"],
+            initialCapital: 10000,
+            openPositions: [
+                // Provide open positions to automation
+                // {
+                //   symbol: 'AAPL',
+                //   openDate: 1682366400000,
+                //   openPrice: 200.00,
+                //   closeDate: null,
+                //   closePrice: null,
+                //   units: 5,
+                //   side: 'long',
+                //   accountType: 'paper'
+                // }
+            ]
         },
     },
-    // Configuration to run a backtest
+    // Backtest automation
+    // ex. zapcli backtest
     backtest: {
         startDate: "2024-05-01",
         endDate: "2024-05-20",
@@ -165,7 +193,9 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
         },
         analyzers: [
         new analyzers.RetursAnalyzer(),
-        new analyzers.PositionsAnalyzer()
+        new analyzers.DrawDownAnalyzer(),
+        new analyzers.TradesAnalyzer(),
+        new analyzers.PositionsAnalyzer(),
         ]
     }
     }
