@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from "@astrojs/tailwind";
+import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,29 @@ export default defineConfig({
         light: './src/assets/zapcli_logo.svg',
         dark: './src/assets/zapcli_white.svg'
       },
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-QB9GVCRRDN',
+            type: 'text/partytown',
+            async: true
+          }
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'text/partytown'
+          },
+          content: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-QB9GVCRRDN');
+          `
+        }
+      ],
       social: {
         github: 'https://github.com/ghalex/zaptrade'
         // discord: 'https://astro.build/chat',
@@ -120,6 +144,11 @@ export default defineConfig({
     tailwind({
       // Disable the default base styles:
       applyBaseStyles: false,
-    })
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ]
 });
