@@ -1,0 +1,15 @@
+---
+import { YouTube } from "astro-embed";
+
+export interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<div>
+    <YouTube slot="media" id={href} posterQuality="max" />
+</div>
+
+<style></style>

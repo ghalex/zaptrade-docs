@@ -5,6 +5,13 @@ tableOfContents:
     maxHeadingLevel: 3
 ---
 import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/components';
+import YouTubeCard from '@/components/youtube-card.astro';
+
+You can watch a video tutorial if you prefer a visual guide on how to create a project and start writing your first automation.
+
+<YouTubeCard href="https://www.youtube.com/watch?v=4-dnBD4YWwU" />
+
+Otherwise, follow the steps below to get started with ZapCLI.
 
 <Steps>
 1. ### Install the CLI
@@ -117,12 +124,12 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
             ;; Loops a list a symbols and buys 1 share of each
 
             (def symbols [
-            "AAPL",
-            "MSFT"
+                "AAPL",
+                "MSFT"
             ])
 
             (loop symbol in symbols
-            (buy {symbol} 1)
+                (buy {symbol} 1)
             )
             ```
         </TabItem>
@@ -133,9 +140,9 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
             const settings = {}
 
             function run() {
-            for (const symbol of assets) {
-                this.buy(this.asset(symbol), 1)
-            }
+                for (const symbol of assets) {
+                    this.buy(this.asset(symbol), 1)
+                }
             }
             ```
         </TabItem>
@@ -165,21 +172,22 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
     execute: {
         date: "2024-05-20",
         inputs: {
-            assets: ["AAPL", "MSFT"],
-            initialCapital: 10000,
-            openPositions: [
-                // Provide open positions to automation
-                // {
-                //   symbol: 'AAPL',
-                //   openDate: 1682366400000,
-                //   openPrice: 200.00,
-                //   closeDate: null,
-                //   closePrice: null,
-                //   units: 5,
-                //   side: 'long',
-                //   accountType: 'paper'
-                // }
-            ]
+        assets: ["AAPL", "MSFT"],
+        initialCapital: 10000,
+        cash: 5000,
+        openPositions: [
+            // Provide open positions to automation
+            // {
+            //   symbol: 'AAPL',
+            //   openDate: 1682366400000,
+            //   openPrice: 200.00,
+            //   closeDate: null,
+            //   closePrice: null,
+            //   units: 5,
+            //   side: 'long',
+            //   accountType: 'paper'
+            // }
+        ]
         },
     },
     // Backtest automation
@@ -187,15 +195,14 @@ import { Tabs, TabItem, Code, Steps, FileTree } from '@astrojs/starlight/compone
     backtest: {
         startDate: "2024-05-01",
         endDate: "2024-05-20",
-        saveResult: "./report/data.json",
         inputs: {
         assets: []
         },
         analyzers: [
-        new analyzers.RetursAnalyzer(),
-        new analyzers.DrawDownAnalyzer(),
-        new analyzers.TradesAnalyzer(),
-        new analyzers.PositionsAnalyzer(),
+            new analyzers.RetursAnalyzer(),
+            new analyzers.DrawDownAnalyzer(),
+            new analyzers.TradesAnalyzer(),
+            new analyzers.PositionsAnalyzer(),
         ]
     }
     }
