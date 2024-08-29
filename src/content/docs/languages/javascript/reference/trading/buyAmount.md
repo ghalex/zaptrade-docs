@@ -32,11 +32,11 @@ The `buyAmount` function returns an order object containing information about th
 
 ```javascript
 // Buys 1.29 shares of AAPL if price is 155
-this.buyAmount("AAPL", 200);
+this.buyAmount(this.asset("AAPL"), 200);
 //=> order {symbol: "AAPL", action: "buy", units: 1.29, ....}
 
 // Buys 1 share of AAPL if price is 155
-this.buyAmount("AAPL", 200, { round: true });
+this.buyAmount(this.asset("AAPL"), 200, { round: true });
 //=> order {symbol: "AAPL", action: "buy", units: 1, ....}
 
 ```

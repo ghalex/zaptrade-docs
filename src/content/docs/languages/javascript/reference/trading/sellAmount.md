@@ -22,7 +22,7 @@ The `sellAmount` function returns an order object containing information about t
 
 ### Parameters
 
-- `{asset}`: asset to be sold
+- `asset`: asset to be sold
 - `amount `: the amount to be sold.
 - `options?`
   - `target`: checks openPositions and generates order to balance portfolio
@@ -32,10 +32,10 @@ The `sellAmount` function returns an order object containing information about t
 
 ```javascript
 // Sells 1.29 shares of AAPL if price is 155
-this.sellAmount("AAPL", 200);
+this.sellAmount(this.asset("AAPL"), 200);
 //=> order {symbol: "AAPL", action: "sell", units: 1.29, ....}
 
 // Sells 1 share of AAPL if price is 155
-this.sellAmount("AAPL", 200, { round: true });
+this.sellAmount(this.asset("AAPL"), 200, { round: true });
 //=> order {symbol: "AAPL", action: "sell", units: 1, ....}
 ```

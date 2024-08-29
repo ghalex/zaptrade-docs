@@ -9,7 +9,7 @@ Buy one share of AAPL, no logic. This is the simplest automation you can build. 
 
 
 ```javascript
-this.buy("AAPL", 1);
+this.buy(this.asset("AAPL"), 1);
 
 //=> {symbol: "AAPL", units: 1, side: "long", ...}
 ```
@@ -19,9 +19,9 @@ this.buy("AAPL", 1);
 This automation has some logic.  Calculates Simple Moving Average for the last 21 days and buys using all cash only if the asset current price is over SMA21 if not closes all positions
 
 ```javascript
-const asset = "MSFT";                  // define asset
-const sma21 = this.sma(21, asset);     // calculates SMA21
-const closePrice = this.asset(asset).close;   // gets asset close price
+const asset = this.asset("MSFT");                  // define asset
+const sma21 = this.sma(21, "MSFT");                // calculates SMA21
+const closePrice = asset.close;     // gets asset close price
 
 if (closePrice > sma21) {
   this.buyAmount(asset, this.getCash());     // yes => Buy one share
@@ -53,6 +53,6 @@ const stocksSorted = stocks.sort((a, b) => {
 for (let i = 0; i < topX; i++) {
   const symbol = stocksSorted[i];
   const amount = this.getCash() * weight;
-  this.buyAmount(symbol, amount, true);
+  this.buyAmount(this.asset(symbol), amount, true);
 }
 ```

@@ -32,11 +32,11 @@ The `buy` function returns an order object containing information about the buy 
 
 ```javascript
 // buys one share of AAPL
-this.buy("AAPL", 1)
+this.buy(this.asset("AAPL"), 1)
 //=> order {symbol: "AAPL", action: "buy", units: 1, ....}
 
 // openPositions = [{symbol: "AAPL", side: "long", units: 1}]
-this.buy("AAPL", 1, { target: true })
+this.buy(this.asset("AAPL"), 1, { target: true })
 // will not generate a order because openPositions already has
 // 1 share of AAPL long
 ```

@@ -22,7 +22,7 @@ The `sell` function returns an order object containing information about the sel
 
 ### Parameters
 
-- `{asset}`: asset to be sold
+- `asset`: asset to be sold
 - `shares`: the number of units (shares, contracts, etc.) to be sold.
 - `options?`
   - `target`: checks openPositions and generates order to balance portfolio
@@ -32,10 +32,10 @@ The `sell` function returns an order object containing information about the sel
 
 ```javascript
 // Sells one share of AAPL
-this.sell("AAPL", 1);
+this.sell(this.asset("AAPL"), 1);
 //=> order {symbol: "AAPL", action: "sell", units: 1, ....}
 
 // openPositions = [{symbol: "AAPL", side: "short", units: 1}]
-this.sell("AAPL", 1, { target: true });
+this.sell(this.asset("AAPL"), 1, { target: true });
 // Will not generate an order because openPositions already has 1 share of AAPL short
 ```
